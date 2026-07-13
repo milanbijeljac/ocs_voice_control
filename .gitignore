@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+x64/
+[Dd]ebug/
+[Rr]elease/
+*.vcxproj.user
+ocs_voic.*/
+
+# vcpkg manifest mode instalira zavisnosti ovde
+vcpkg_installed/
+
+# Whisper modeli (~150MB) — skidaju se rucno sa Hugging Face
+models/*.bin
+
+# Lokalne beleske, ne ide na git
+VoiceApp_README.md

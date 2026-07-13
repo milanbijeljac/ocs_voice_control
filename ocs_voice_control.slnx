@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ocs_voice_control.vcxproj" Id="0ea7d78b-5037-477e-9cde-bb0ff690da26" />
+</Solution>
