@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include "portaudio.h"
 
 class App
@@ -8,11 +7,13 @@ class App
 
 private:
 	PaError m_paerror;
-
-public:
-	void init();
-	void run();
+private:
 	void pa_terminate();
+	void init();
+public:
+	
+	void run();
+	
 public:
 	App() : m_paerror(paNotInitialized)
 	{
@@ -23,7 +24,9 @@ public:
 		pa_terminate();
 	};
 
-	
+	App(const App& other) = delete;
+	App& operator=(const App& other) = delete;
 
-	PaError get_pa_status();
+	PaError get_pa_status() const;
+
 };
