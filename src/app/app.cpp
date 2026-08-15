@@ -30,10 +30,22 @@ void App::init()
 	/* Loop through all devices and print them in console */
 	std::cout << number_of_devices << " devices found." << '\n';
 
+	std::cout << "Listing just I and I/O devices." << '\n';
+
+	int device_count = 1;
+
 	for (int i = 0; i < number_of_devices; i++)
 	{
 		const auto* p_pa_device_info = Pa_GetDeviceInfo(static_cast<PaDeviceIndex>(i));
-		std::cout << "Device " << i  << ": " << p_pa_device_info->name << '\n';
+		if (p_pa_device_info->maxInputChannels > 0 && p_pa_device_info->maxOutputChannels == 0)
+		{
+			std::cout << "Input Device " << device_count++ << ": " << p_pa_device_info->name << '\n';
+		}
+		else if (p_pa_device_info->maxInputChannels > 0 && p_pa_device_info->maxOutputChannels > 0)
+		{
+			std::cout << "I/O Device " << device_count++ << ": " << p_pa_device_info->name << '\n';
+		}
+		
 	}
 }
 
