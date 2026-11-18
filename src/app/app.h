@@ -1,32 +1,21 @@
 #pragma once
 
-#include "portaudio.h"
+#include "../audio/port_audio_guard.h"
 
 class App
 {
-
 private:
-	PaError m_paerror;
-private:
-	void pa_terminate();
-	void init();
+	/* paGuard needs to be first to instantiate as it will triger init of PA so it will be ready for stream */
+	PortAudioGuard m_paGuard;
 public:
 	
 	void run();
 	
 public:
-	App() : m_paerror(paNotInitialized)
-	{
-		init();
-	};
-	~App() 
-	{
-		pa_terminate();
-	};
+	App() = default;
+	~App() = default;
 
 	App(const App& other) = delete;
 	App& operator=(const App& other) = delete;
-
-	PaError get_pa_status() const;
 
 };
