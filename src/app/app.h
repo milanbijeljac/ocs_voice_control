@@ -6,7 +6,7 @@ class App
 {
 private:
 	/* paGuard needs to be first to instantiate as it will triger init of PA so it will be ready for stream */
-	PortAudioGuard m_paGuard;
+	PortAudioGuard m_pa_guard;
 public:
 	
 	void run();
